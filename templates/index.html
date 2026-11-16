@@ -1,0 +1,502 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Algerian Forest Fires FWI Estimation
+          using Python, Machine Learning and Flask.">
+
+    <title>Forest Fire FWI Prediction | ML Project</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #263445;
+            line-height: 1.7;
+        }
+
+        header {
+            background: #173d32;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin: 0 0 12px;
+        }
+
+        header p {
+            color: #c7ddd3;
+            font-size: 17px;
+            margin: 6px 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            margin-bottom: 22px;
+            box-shadow: 0 3px 12px #0000000d;
+        }
+
+        h2 {
+            color: #173d32;
+            margin-top: 0;
+        }
+
+        .tech {
+            display: inline-block;
+            padding: 9px 14px;
+            margin: 5px 5px 5px 0;
+            background: #e6f3ec;
+            color: #175a40;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .steps {
+            line-height: 2;
+            padding-left: 24px;
+        }
+
+        .steps li {
+            padding-left: 5px;
+        }
+
+        .button,
+        .home-btn {
+            display: inline-block;
+            background: #217b50;
+            color: white;
+            padding: 13px 26px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover,
+        .home-btn:hover {
+            background: #165b3b;
+        }
+
+        .button:focus-visible,
+        .home-btn:focus-visible {
+            outline: 3px solid #d4aa45;
+            outline-offset: 3px;
+        }
+
+        .home-btn {
+            display: block;
+            width: fit-content;
+            margin: 25px auto 0;
+        }
+
+        .model-info {
+            background: #f0f7f3;
+            padding: 18px;
+            border-left: 4px solid #217b50;
+            border-radius: 6px;
+            margin-top: 16px;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .metric-card {
+            background: #f0f7f3;
+            text-align: center;
+            padding: 22px;
+            border-radius: 10px;
+        }
+
+        .metric-card h3 {
+            font-size: 30px;
+            color: #176542;
+            margin: 5px 0;
+        }
+
+        .metric-card p {
+            margin: 0;
+            color: #52675c;
+        }
+
+        .note {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #687583;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 28px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .home-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header id="top">
+    <h1>Forest Fire FWI Prediction</h1>
+
+    <p>
+        End-to-End Machine Learning Project
+    </p>
+
+    <p>
+        Python | Scikit-learn | Flask
+    </p>
+
+    <p>
+        Based on the Algerian Forest Fires Dataset
+    </p>
+</header>
+
+<main class="container">
+
+    <!-- ABOUT PROJECT -->
+    <section class="card">
+
+        <h2>About This Project</h2>
+
+        <p>
+            This project demonstrates an end-to-end
+            Machine Learning workflow for estimating
+            the Fire Weather Index (FWI) using
+            historical observations from the
+            Algerian Forest Fires dataset.
+        </p>
+
+        <p>
+            The project covers data cleaning,
+            Exploratory Data Analysis (EDA),
+            feature engineering, regression model
+            training, model comparison and evaluation.
+        </p>
+
+        <p>
+            Four regression algorithms were explored:
+            Linear Regression, Ridge Regression,
+            Lasso Regression and Elastic Net.
+        </p>
+
+        <p>
+            A trained Ridge Regression model,
+            together with StandardScaler preprocessing,
+            was integrated into a Flask web application.
+        </p>
+
+        <p>
+            Users can enter weather measurements
+            and fire-index information to receive
+            an estimated FWI value.
+        </p>
+
+        <div class="model-info">
+            <strong>Important:</strong>
+            This is an educational Machine Learning
+            project for estimating FWI.
+            It is not a real-time wildfire prediction
+            or public safety warning system.
+        </div>
+
+    </section>
+
+
+    <!-- TECHNOLOGIES -->
+    <section class="card">
+
+        <h2>Technologies Used</h2>
+
+        <span class="tech">Python</span>
+        <span class="tech">Pandas</span>
+        <span class="tech">NumPy</span>
+        <span class="tech">Matplotlib</span>
+        <span class="tech">Seaborn</span>
+        <span class="tech">Scikit-learn</span>
+        <span class="tech">Ridge Regression</span>
+        <span class="tech">StandardScaler</span>
+        <span class="tech">Flask</span>
+        <span class="tech">HTML & CSS</span>
+        <span class="tech">Jupyter Notebook</span>
+
+    </section>
+
+
+    <!-- MACHINE LEARNING WORKFLOW -->
+    <section class="card">
+
+        <h2>Machine Learning Workflow</h2>
+
+        <p>
+            The project follows the main stages
+            of a supervised Machine Learning workflow.
+        </p>
+
+        <ol class="steps">
+
+            <li>
+                <strong>Data Loading:</strong>
+                Import historical Algerian Forest Fires data.
+            </li>
+
+            <li>
+                <strong>Data Cleaning:</strong>
+                Investigate missing values, data types
+                and inconsistent records.
+            </li>
+
+            <li>
+                <strong>Exploratory Data Analysis:</strong>
+                Study distributions, correlations,
+                relationships and outliers.
+            </li>
+
+            <li>
+                <strong>Feature Engineering:</strong>
+                Prepare relevant numerical and
+                categorical model inputs.
+            </li>
+
+            <li>
+                <strong>Train-Test Split:</strong>
+                Separate training data from
+                held-out testing data.
+            </li>
+
+            <li>
+                <strong>Feature Scaling:</strong>
+                Apply StandardScaler using parameters
+                learned from the training data.
+            </li>
+
+            <li>
+                <strong>Model Training:</strong>
+                Train and compare regression algorithms.
+            </li>
+
+            <li>
+                <strong>Model Evaluation:</strong>
+                Evaluate predictions using
+                MAE and R-Squared.
+            </li>
+
+            <li>
+                <strong>Flask Integration:</strong>
+                Connect the saved Ridge Regression
+                model to an interactive web form.
+            </li>
+
+        </ol>
+
+    </section>
+
+
+    <!-- REGRESSION MODELS -->
+    <section class="card">
+
+        <h2>Regression Models Explored</h2>
+
+        <p>
+            Several regression algorithms were
+            implemented to estimate Fire Weather
+            Index values.
+        </p>
+
+        <ul class="steps">
+            <li>Linear Regression</li>
+            <li>Ridge Regression</li>
+            <li>Lasso Regression</li>
+            <li>Elastic Net Regression</li>
+        </ul>
+
+        <div class="model-info">
+            <strong>Deployed Model:</strong>
+            Ridge Regression with StandardScaler.
+        </div>
+
+    </section>
+
+
+    <!-- MODEL PERFORMANCE -->
+    <section class="card">
+
+        <h2>Model Performance</h2>
+
+        <p>
+            The Ridge Regression model was evaluated
+            using a held-out test split of the
+            historical Algerian Forest Fires dataset.
+        </p>
+
+        <div class="metrics">
+
+            <div class="metric-card">
+                <p>R-Squared (R²)</p>
+                <h3>0.9843</h3>
+                <p>Reported test R²</p>
+            </div>
+
+            <div class="metric-card">
+                <p>Mean Absolute Error</p>
+                <h3>0.5642</h3>
+                <p>Reported test MAE</p>
+            </div>
+
+        </div>
+
+        <p class="note">
+            These are the results reported in the
+            project's training notebook.
+            They describe performance on a held-out
+            portion of the historical dataset,
+            not independently validated real-world
+            forecasting accuracy.
+        </p>
+
+    </section>
+
+
+    <!-- APPLICATION -->
+    <section class="card">
+
+        <h2>FWI Prediction Application</h2>
+
+        <p>
+            The Flask web application provides
+            an interface for estimating Fire
+            Weather Index values.
+        </p>
+
+        <p>
+            Users can enter the following inputs:
+        </p>
+
+        <ul class="steps">
+            <li>Temperature</li>
+            <li>Relative Humidity (RH)</li>
+            <li>Wind Speed (Ws)</li>
+            <li>Rainfall (Rain)</li>
+            <li>Fine Fuel Moisture Code (FFMC)</li>
+            <li>Duff Moisture Code (DMC)</li>
+            <li>Initial Spread Index (ISI)</li>
+            <li>Fire Class (Classes)</li>
+            <li>Region</li>
+        </ul>
+
+        <p>
+            The application receives user inputs,
+            applies the saved preprocessing scaler,
+            and uses the trained Ridge Regression
+            model to generate an FWI estimate.
+        </p>
+
+        <a href="{{ url_for('predict_point') }}"
+           class="home-btn">
+            Predict Fire Weather Index &rarr;
+        </a>
+
+    </section>
+
+
+    <!-- OBJECTIVE -->
+    <section class="card">
+
+        <h2>Project Objective and Outcome</h2>
+
+        <p>
+            The objective of this project is to
+            demonstrate practical skills in
+            Machine Learning and application
+            development by building a
+            regression-based FWI estimation system.
+        </p>
+
+        <p>
+            The completed application combines
+            dataset preparation, exploratory
+            analysis, regression modelling,
+            evaluation and Flask integration.
+        </p>
+
+        <p>
+            This project demonstrates how a
+            trained Machine Learning model
+            can be connected to a web interface
+            to provide predictions from user inputs.
+        </p>
+
+        <p>
+            Possible future improvements include
+            more rigorous model validation,
+            automated testing, and deployment
+            to a public hosting platform.
+        </p>
+
+        <a href="#top" class="button">
+            Back to Top &uarr;
+        </a>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        Algerian Forest Fires |
+        Machine Learning Portfolio Project
+    </p>
+
+    <p>
+        Developed with Python,
+        Scikit-learn and Flask
+    </p>
+
+</footer>
+
+</body>
+</html>
